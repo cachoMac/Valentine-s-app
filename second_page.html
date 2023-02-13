@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .center {
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+    margin-top: 180px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 36px;
+        color: black;
+      }
+
+      h2 {
+        font-size: 24px;
+        color: black;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 20px;
+        margin: 10px;
+        /* position: absolute; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1 id="greeting"></h1>
+      <h2 id="question"></h2>
+      <div>
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+      </div>
+    </div>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        document.querySelector('#greeting').innerHTML = `Hi, ${name}!`;
+        document.querySelector('#question').innerHTML = `${name}, do you have a Valentine's date?`;
+
+        const yesButton = document.querySelector('#yes-button');
+        let isClicked = false;
+        yesButton.addEventListener('click', function () {
+          if (!isClicked) {
+            yesButton.style.position = 'absolute';
+            isClicked = true;
+          }
+          const x = Math.floor(Math.random() * (window.innerWidth - yesButton.offsetWidth));
+          const y = Math.floor(Math.random() * (window.innerHeight - yesButton.offsetHeight));
+          yesButton.style.top = `${y}px`;
+          yesButton.style.left = `${x}px`;
+
+          const messages = ['Really?', 'Talaga?', 'Iiwan ka din nyan', 'Click mo yung NO!', 'What if?'];
+          const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+          const messageElement = document.createElement('div');
+          messageElement.innerHTML = randomMessage;
+          messageElement.style.position = 'absolute';
+          messageElement.style.top = `${y + 50}px`;
+          messageElement.style.left = `${x}px`;
+          document.body.appendChild(messageElement);
+        });
+
+        const noButton = document.querySelector('#no-button');
+        noButton.addEventListener('click', function () {
+          window.location.href = 'third_page.html';
+        });
+    </script>
+  </body>
+</html>

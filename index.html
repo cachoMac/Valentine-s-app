@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    padding: 80px 200px 80px 200px;
+    border-radius: 10px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 18px;
+      }
+
+      input[type="submit"] {
+        padding: 10px 20px;
+        background-color: blue;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      h3 {
+        margin-bottom: 20px;
+        font-size: xx-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <form action="second_page.html" method="get">
+        <h3>Hi, Welcome!</h3>
+        <label>Enter your name:</label>
+        <input type="text" name="name">
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+  </body>
+</html>
